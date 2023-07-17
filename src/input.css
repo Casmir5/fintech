@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+  border: 2px solid red;
+} */
+body {
+  font-family: "Clash Grotesk", sans-serif;
+  @apply bg-slate-900;
+  /* background-color: #1d283a; */
+}
+
+input {
+  @apply p-2  rounded-md bg-slate-700  outline-none   text-slate-300 pl-3;
+}
+.correct {
+  @apply focus:bg-purple-600 focus:bg-opacity-25  focus:border-b-purple-600;
+}
+.error {
+  @apply focus:bg-red-900 focus:bg-opacity-40  focus:border-red-600 bg-red-900 bg-opacity-40 border-red-600;
+  border-bottom-width: 3px;
+}
+
+input:focus {
+  border-bottom-width: 3px;
+}
+.balance,
+.btn {
+  background-image: linear-gradient(
+    to bottom right,
+    #7832e2,
+    rgb(112, 55, 246),
+    #443cdf
+  );
+}
+.btn {
+  @apply text-white rounded-md;
+}
+/*  */
+
+.transaction__row {
+  @apply w-full border-b-2 border-slate-400  mb-10 px-2;
+  /* height: 2px; */
+}
+.transaction__type {
+  @apply px-5 py-2 rounded-full;
+}
+
+.transaction__type--transfered {
+  @apply bg-red-700;
+}
+
+.transaction__type--deposit {
+  @apply bg-emerald-600;
+}
+.number {
+  @apply text-white py-2 text-2xl font-bold bg-transparent flex-grow;
+}

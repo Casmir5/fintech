@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@700,400,600,300,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <body class="text-white h-screen">
+        <main class="p-2 pb-0">
+            <header class="flex  justify-between mb-5">
+                <p>Welcome back, <br> Chidubem</p>
+                <figure class="w-12  h-12 rounded-lg">
+                    <img loading="lazy" class="w-full h-full object-cover rounded-full"
+                        src="./images/charlie-green-3JmfENcL24M-unsplash.jpg" alt="profile img">
+                </figure>
+            </header>
+            <section class=" h-52 balance rounded-md p-5 flex flex-col">
+                <p class="flex flex-col justify-between text-slate-100 gap-4 text-xl">Total Balance <span
+                        class="text-5xl ">$
+                        25000.00</span></p>
+                <p class="pt-5">agbocasmir2@gmail.com</p>
+                <p class="text-right pt-3">Add money<span> ></span>
+                </p>
+            </section>
+            <section class="flex justify-between gap-4 mt-6">
+                <a href="./depoist.html" class="flex-1 bg-slate-800 text-center rounded-md  p-3 flex justify-center">
+                    <span class="w-7 mr-2 "><img class="w-full" src="./images/plus (1).png" alt=""></span>Add
+                    Funds
+                </a>
+
+                <a href="./transfer.html"
+                    class="flex-1 bg-slate-800 text-center rounded-md p-3 flex  justify-center"><span
+                        class="w-7 mr-2 self"><img class="w-full" src="./images/transfer.png"
+                            alt="transfer-img"></span>Transfer
+                </a>
+
+            </section>
+            <section class=" mt-7 w-full">
+                <div class="transaction-history mt-6">
+                    <div class="transaction-header flex justify-between  bg-slate-800 mb-5 px-3 py-1 ">
+                        <h4>Transaction History</h4>
+                        <p>Sort</p>
+                    </div>
+
+                    <div class="transaction__row flex justify-between pb-3">
+                        <div class="transaction__type transaction__type--deposit">
+                            1 deposit</div>
+                        <div class="transaction__value">1300₤</div>
+                    </div>
+                    <!-- 
+                    <div class="transaction__row flex justify-between pb-3">
+                        <div class="transaction__type transaction__type--transfered">
+                            2 Transfered</div>
+                        <div class="transaction__value">2500₤</div>
+                    </div> -->
+
+                    <div class="transaction__row flex justify-between pb-3">
+                        <div class="transaction__type transaction__type--transfered">
+                            2 Transfered</div>
+                        <div class="transaction__value">2500₤</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-slate-800 flex justify-between w-full px-3 py-2">
+            <div class="w-10"><img class="w-full" src="./images/plus (1).png" alt=""></div>
+            <div class="w-10"><img class="w-full" src="./images/transfer.png" alt=""></div>
+            <div class="w-10"><img class="w-full" src="./images/profile.png" alt=""></div>
+
+        </footer>
+    </body>
+</body>
+
+</html>

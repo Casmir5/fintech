@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@700,400,600,300,500&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex flex-col justify-center h-screen overflow-hidden">
+    <main class="px-5 text-white">
+        <section class="my-container ">
+            <h2 class=" text-purple-600 text-4xl mb-5 text-center  ">Sign In</h2>
+            <p class=" text-center pb-5">Log in to your account</p>
+
+            <form action="post" class="">
+                <div class="wrapper ">
+                    <div class="inputs-wrap">
+
+                        <div class="flex flex-col gap-3 mt-5">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="correct" id="login-Email">
+                            <p class="ml-1 text-red-500 -mt-3 email__error-msg "></p>
+                        </div>
+                        <div class="flex flex-col gap-3 mt-5">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="correct" id="login-Pword">
+                            <p class="ml-1 text-red-500 -mt-3 pword__error-msg"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="justify-center  text-center  mt-10 ">
+                        <button type="submit" disabled
+                            class=" disabled:bg-gray-200/40 disabled:text-gray-100 rounded-md py-2 w-full">Sign
+                            In</button>
+                    </div>
+                    <p class="mt-2">You dont have an account yet? <a href="./register.html"
+                            class="text-purple-800 ">sign up</a></p>
+                </div>
+            </form>
+        </section>
+
+    </main>
+    <script src="login.js"></script>
+</body>
+
+</html>
