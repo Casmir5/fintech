@@ -4,5 +4,9 @@
   },
   "scripts": {
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.26.0",
+    "dotenv": "^16.3.1"
   }
 }
