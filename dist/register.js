@@ -88,24 +88,33 @@ form.addEventListener('submit', function (e) {
   console.log(userEmail, userName);
 
   async function insertData() {
-    const { data, error } = await db.auth.signUp({
-      email: email.value,
-      pword: password.value,
-      options: {
-        data: {
-          name: name.value,
-          pin: '1111',
-          transactions: ['0'],
-        },
-      },
+    // const { data, error } = await db.auth.signUp({
+    //   email: email.value,
+    //   pword: password.value,
+    //   options: {
+    //     data: {
+    //       name: name.value,
+    //       pin: '1111',
+    //       transactions: ['0'],
+    //     },
+    //   },
+    // });
+
+    const { error } = await db.from('users').insert({
+      email: userEmail.join(''),
+      password: password.value,
+      name: name.value,
+      pin: '1111',
+      transactions: ['0'],
     });
+    // .select();
 
     if (error) {
       console.log('Error inserting user:', error.message);
     } else {
       console.log('User inserted successfully');
       console.log('Login successful!');
-      sessionStorage.setItem('email', userEmail);
+      sessionStorage.setItem('email', userEmail.join(''));
       window.location.href = '/home.html'; //! CHANGE URL
     }
   }

@@ -13,9 +13,10 @@ const emailEL = document.querySelector('.email');
 const transactionContainer = document.querySelector('.transactions');
 const sortBtn = document.querySelector('.sort');
 
-// localStorage.setItem('email', 'test@test.com');
-const email = localStorage.getItem('email');
+// sessionStorage.setItem('email', 'test@test.com');
+const email = sessionStorage.getItem('email');
 
+console.log(email);
 emailEL.textContent = email;
 
 async function updateTransactionHistory(email, sort = false) {
@@ -26,6 +27,7 @@ async function updateTransactionHistory(email, sort = false) {
       .eq('email', email)
       .single();
     const movements = data.transactions;
+    movements.shift();
     if (error) {
       console.error('Error fetching data:', error.message);
       return false;
@@ -36,13 +38,13 @@ async function updateTransactionHistory(email, sort = false) {
           ? movements.slice().sort((a, b) => a - b)
           : movements;
         moves = movements.forEach((mov, i) => {
-          // if (mov === 0) {
-          //   return;
-          // }
           const type = mov > 0 ? 'deposit' : 'transfered';
+          if (movements) {
+            document.querySelector('.no-transaction').classList.add('hidden');
+          }
           const html = ` <div class="transaction__row flex justify-between pb-3">
        <div class="transaction__type transaction__type--${type}">
-       ${i} ${type}</div>
+       ${i + 1} ${type}</div>
       <div class="transaction__value">${mov}$</div>
        </div>`;
           transactionContainer.insertAdjacentHTML('afterbegin', html);
@@ -81,7 +83,7 @@ async function updateUi(email) {
     const movements = data.transactions;
     console.log(movements);
     if (movements !== null) {
-      document.querySelector('.no-transaction').classList.add('hidden');
+      // document.querySelector('.no-transaction').classList.add('hidden');
       // update user balance
       const balance = movements.reduce((acc, mov) => acc + mov, 0);
       balanceEl.textContent = balance;

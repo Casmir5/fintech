@@ -12,7 +12,7 @@ const amountEl = document.querySelector('.amount');
 const amountErrorEL = document.querySelector('.amount-error__text');
 
 console.log(submitBtn, amountContainer);
-const useremail = localStorage.getItem('email');
+const useremail = sessionStorage.getItem('email');
 const amountArr = [];
 async function fetchTransactions(email) {
   try {

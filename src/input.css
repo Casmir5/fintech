@@ -10,6 +10,9 @@ body {
   @apply bg-slate-900;
   /* background-color: #1d283a; */
 }
+label {
+  color: white;
+}
 
 input {
   @apply p-2  rounded-md bg-slate-700  outline-none   text-slate-300 pl-3;

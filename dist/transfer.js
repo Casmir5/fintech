@@ -3,7 +3,7 @@ const SUPABASE_URL = 'https://nfdesaerenopfgdquekv.supabase.co';
 const SUPABASE_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5mZGVzYWVyZW5vcGZnZHF1ZWt2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODk3NjkyMDgsImV4cCI6MjAwNTM0NTIwOH0._OMoM2oN-_93iBG6EqbSC2aQn3kbU-XS9zh99uzIdh8';
 const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-const useremail = localStorage.getItem('email');
+const useremail = sessionStorage.getItem('email');
 
 // transfer details
 const transferContainer = document.querySelector('.transfer-wrap');
@@ -22,11 +22,9 @@ const emailCredited = document.querySelector('.transfered-email');
 const transfersAccountsRow = document.querySelector('.testing');
 
 const profileColors = [
-  'bg-purple-700',
   'bg-red-700',
   'bg-green-700',
   'bg-amber-700',
-  'bg-blue-700',
   'bg-pink-700',
 ];
 
@@ -62,7 +60,9 @@ fetchAllUsers()
       }
       const html = ` <div 
                       class="transfer-account__row flex gap-3 text-white justify-between mb-10 border-b-2 border-slate-600 pb-5 transfer-accounts__row ">
-                         <div class="bg-red-700 rounded-full w-10 h-10 flex items-center justify-center">
+                         <div class="${RandomProfileColor(
+                           profileColors
+                         )} rounded-full w-10 h-10 flex items-center justify-center">
                            <p class="text-white text-xl uppercase">
                              ${user.email[0].toUpperCase()}
                            </p>
@@ -172,12 +172,14 @@ async function pushValueToTransactionsRow(email, newValue) {
     return false;
   }
 }
-pushValueToTransactionsRow('test@test.com', 43);
+// pushValueToTransactionsRow('test@test.com', 43);
 transferBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  const recipientEmailValue = [recipientEmail.value].join(' ');
-  const transferAmountValue = [transferAmount.value].join(' ');
+  const recipientEmailValue = [recipientEmail.value].join('');
+  const transferAmountValue = [transferAmount.value].join('');
 
+  console.log(recipientEmailValue);
+  console.log(recipientEmailValue);
   checkTransferCredentials(useremail, transferAmount.value)
     .then(result => {
       // check if  sender has insufficient balance

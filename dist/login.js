@@ -23,8 +23,11 @@ async function checkCredentials(email, password) {
       return false;
     }
 
+    console.log(`data: ${data.email} ${data.password}`);
+    console.log(`Email:${email} `);
+    console.log(`Password: ${password} `);
     // Check if the password matches the stored hashed password
-    if (data && data.pword === password) {
+    if (data && data.password === password) {
       return true; // Credentials are correct
     } else {
       return false; // Credentials are incorrect
@@ -79,15 +82,15 @@ loginForm.addEventListener('submit', async event => {
   if (credentialsCorrect) {
     // Login successful, redirect to the next page or perform other actions
     console.log('Login successful!');
-    localStorage.setItem('email', userEmail);
+    sessionStorage.setItem('email', userEmail);
 
-    console.log(localStorage.getItem('email'));
+    console.log(sessionStorage.getItem('email'));
     window.location.href = '/home.html'; //! CHANGE URL
   } else {
     // Login failed, display an error message or take appropriate actions
     email.classList.add('error');
     document.querySelector('.email__error-msg').textContent =
       'Incorrect email or password. ';
-    // console.log('Incorrect email or password. Please try again.');
+    console.log('Incorrect email or password. Please try again.');
   }
 });
