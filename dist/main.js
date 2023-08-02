@@ -18,89 +18,92 @@ const email = sessionStorage.getItem('email');
 
 console.log(email);
 emailEL.textContent = email;
-
-async function updateTransactionHistory(email, sort = false) {
-  try {
-    const { data, error } = await db
-      .from('users')
-      .select('transactions')
-      .eq('email', email)
-      .single();
-    const movements = data.transactions;
-    movements.shift();
-    if (error) {
-      console.error('Error fetching data:', error.message);
-      return false;
-    } else {
-      if (movements) {
-        transactionContainer.innerHTML = '';
-        const moves = sort
-          ? movements.slice().sort((a, b) => a - b)
-          : movements;
-        moves = movements.forEach((mov, i) => {
-          const type = mov > 0 ? 'deposit' : 'transfered';
-          if (movements) {
-            document.querySelector('.no-transaction').classList.add('hidden');
-          }
-          const html = ` <div class="transaction__row flex justify-between pb-3">
-       <div class="transaction__type transaction__type--${type}">
-       ${i + 1} ${type}</div>
-      <div class="transaction__value">${mov}$</div>
-       </div>`;
-          transactionContainer.insertAdjacentHTML('afterbegin', html);
-        });
+if (email) {
+  async function updateTransactionHistory(email, sort = false) {
+    try {
+      const { data, error } = await db
+        .from('users')
+        .select('transactions')
+        .eq('email', email)
+        .single();
+      const movements = data.transactions;
+      movements.shift();
+      if (error) {
+        console.error('Error fetching data:', error.message);
+        return false;
       } else {
-        document.querySelector('.no-transaction').classList.remove('hidden');
+        if (movements) {
+          transactionContainer.innerHTML = '';
+          const moves = sort
+            ? movements.slice().sort((a, b) => a - b)
+            : movements;
+          moves = movements.forEach((mov, i) => {
+            const type = mov > 0 ? 'deposit' : 'transfered';
+            if (movements) {
+              document.querySelector('.no-transaction').classList.add('hidden');
+            }
+            const html = ` <div class="transaction__row flex justify-between pb-3">
+         <div class="transaction__type transaction__type--${type}">
+         ${i + 1} ${type}</div>
+        <div class="transaction__value">${mov}$</div>
+         </div>`;
+            transactionContainer.insertAdjacentHTML('afterbegin', html);
+          });
+        } else {
+          document.querySelector('.no-transaction').classList.remove('hidden');
+        }
       }
-    }
-  } catch {}
-}
+    } catch {}
+  }
 
-async function updateUi(email) {
-  try {
-    // Fetch the user based on the provided email
-    const { data, error } = await db
-      .from('users')
-      .select()
-      .eq('email', email)
-      .single();
+  async function updateUi(email) {
+    try {
+      // Fetch the user based on the provided email
+      const { data, error } = await db
+        .from('users')
+        .select()
+        .eq('email', email)
+        .single();
 
-    console.log(data);
-    if (error) {
-      console.error('Error fetching data:', error.message);
+      console.log(data);
+      if (error) {
+        console.error('Error fetching data:', error.message);
+        return false;
+      }
+      const name = data.name;
+      usernameEL.textContent = name;
+
+      const profileHtml = `<div class=' bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center'>
+      <p class="text-white text-xl uppercase">
+        ${name[0].toUpperCase()}
+        </p>
+        </div>`;
+
+      profileEl.insertAdjacentHTML('afterend', profileHtml);
+      const movements = data.transactions;
+      console.log(movements);
+      if (movements !== null) {
+        // document.querySelector('.no-transaction').classList.add('hidden');
+        // update user balance
+        const balance = movements.reduce((acc, mov) => acc + mov, 0);
+        balanceEl.textContent = balance;
+      }
+
+      // update transaction historys
+      updateTransactionHistory(email);
+    } catch (error) {
+      console.error('Error:', error.message);
       return false;
     }
-    const name = data.name;
-    usernameEL.textContent = name;
-
-    const profileHtml = `<div class=' bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center'>
-    <p class="text-white text-xl uppercase">
-      ${name[0].toUpperCase()}
-      </p>
-      </div>`;
-
-    profileEl.insertAdjacentHTML('afterend', profileHtml);
-    const movements = data.transactions;
-    console.log(movements);
-    if (movements !== null) {
-      // document.querySelector('.no-transaction').classList.add('hidden');
-      // update user balance
-      const balance = movements.reduce((acc, mov) => acc + mov, 0);
-      balanceEl.textContent = balance;
-    }
-
-    // update transaction historys
-    updateTransactionHistory(email);
-  } catch (error) {
-    console.error('Error:', error.message);
-    return false;
   }
-}
-updateUi(email);
+  updateUi(email);
 
-let sorted = false;
-sortBtn.addEventListener('click', function (e) {
-  e.preventDefault();
-  updateTransactionHistory(email, !sorted);
-  sorted = !sorted;
-});
+  let sorted = false;
+  sortBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    updateTransactionHistory(email, !sorted);
+    sorted = !sorted;
+  });
+} else {
+  window.location.href = '/login.html';
+}
