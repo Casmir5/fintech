@@ -71,7 +71,7 @@ if (email) {
         return false;
       }
       const name = data.name;
-      usernameEL.textContent = name;
+      usernameEL.textContent = `${name} 👋`;
 
       const profileHtml = `<div class=' bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center'>
       <p class="text-white text-xl uppercase">

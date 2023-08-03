@@ -594,8 +594,8 @@ video {
   display: none;
 }
 
-.h-52 {
-  height: 13rem;
+.h-60 {
+  height: 15rem;
 }
 
 .h-screen {
@@ -620,6 +620,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-5 {
+  width: 1.25rem;
 }
 
 .flex-1 {
@@ -670,10 +674,6 @@ video {
   align-self: center;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -693,6 +693,10 @@ video {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-2 {
@@ -720,6 +724,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -742,6 +751,10 @@ video {
 
 .pr-2 {
   padding-right: 0.5rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .pt-2 {
@@ -793,6 +806,10 @@ video {
   font-weight: 600;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .text-purple-600 {
   --tw-text-opacity: 1;
   color: rgb(147 51 234 / var(--tw-text-opacity));
@@ -833,19 +850,9 @@ video {
   color: rgb(248 250 252 / var(--tw-text-opacity));
 }
 
-.text-slate-800 {
-  --tw-text-opacity: 1;
-  color: rgb(30 41 59 / var(--tw-text-opacity));
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-slate-200 {
-  --tw-text-opacity: 1;
-  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 /* * {
@@ -906,12 +913,15 @@ input:focus {
 
 .balance,
 .btn {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom right,
     #7832e2,
     rgb(112, 55, 246),
     #443cdf
-  );
+  ); */
+  /* background-color: #7832e2; */
+  /* background-color: rgb(112, 55, 246); */
+  background-color: #443cdf;
 }
 
 .btn {
@@ -942,13 +952,13 @@ input:focus {
 }
 
 .transaction__type--transfered {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
 }
 
 .transaction__type--deposit {
-  --tw-bg-opacity: 1;
-  background-color: rgb(5 150 105 / var(--tw-bg-opacity));
+  background-color: rgb(6 78 59 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
 }
 
 .number {
