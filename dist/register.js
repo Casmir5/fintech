@@ -83,6 +83,8 @@ const userName = [];
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
+  document.querySelector('.register-btn').setAttribute('disabled', '');
+
   userEmail.push(email.value);
   userName.push(name.value);
   console.log(userEmail, userName);

@@ -45,7 +45,12 @@ async function fetchTransactions(email) {
 }
 
 async function pushValueToTransaction(email, newValue) {
+  // ShowLoader
+  document.querySelector('.loader').classList.remove('hidden');
   try {
+    // HideLoader
+    document.querySelector('.loader').classList.remove('hidden');
+
     const oldTransactions = await fetchTransactions(email);
     const { data, error } = await db
       .from('users')
@@ -116,6 +121,7 @@ numbersBtn.forEach(btn => {
 
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
+  submitBtn.setAttribute('disabled', '');
   // Replace with the user's email you want to update
   const newValueToAdd = amountArr.join('');
   console.log(amountArr);
@@ -134,9 +140,4 @@ submitBtn.addEventListener('click', function (e) {
     .catch(error => {
       console.error('Error:', error.message);
     });
-});
-
-closeBtn.addEventListener('click', function (e) {
-  e.preventDefault();
-  window.location = './home.html';
 });
