@@ -21,6 +21,8 @@ const emailCredited = document.querySelector('.transfered-email');
 
 const transfersAccountsRow = document.querySelector('.testing');
 
+const errorMsg = document.querySelector('.error-msg');
+
 const profileColors = [
   'bg-red-700',
   'bg-green-700',
@@ -200,6 +202,8 @@ transferBtn.addEventListener('click', function (e) {
     .then(result => {
       // check if  sender has insufficient balance
       if (result) {
+        transferAmount.classList.add('error');
+        errorMsg.textContent = 'insufficient balance';
         console.log('insufficient balance');
       } else {
         // Add transfered amount to recipient balance
