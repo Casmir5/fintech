@@ -69,7 +69,7 @@ if (email) {
   async function updateUi(email) {
     // showLoader();
     document.querySelector('.loader').classList.remove('hidden');
-    document.querySelector('.overlay').classList.remove('hidden');
+    // document.querySelector('.overlay').classList.remove('hidden');
     try {
       // Fetch the user based on the provided email
       const { data, error } = await db
@@ -80,7 +80,7 @@ if (email) {
 
       // hideLoader();
       document.querySelector('.loader').classList.add('hidden');
-      document.querySelector('.overlay').classList.add('hidden');
+      // document.querySelector('.overlay').classList.add('hidden');
       console.log(data);
       if (error) {
         console.error('Error fetching data:', error.message);
