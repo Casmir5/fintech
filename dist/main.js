@@ -21,12 +21,12 @@ emailEL.textContent = email;
 if (email) {
   const showLoader = function () {
     document.querySelector('.loader').classList.remove('hidden');
-    // document.querySelector('.overlay').classList.remove('hidden');
+    document.querySelector('.overlay').classList.remove('hidden');
   };
 
   const hideLoader = function () {
     document.querySelector('.loader').classList.add('hidden');
-    // document.querySelector('.overlay').classList.add('hidden');
+    document.querySelector('.overlay').classList.add('hidden');
   };
 
   async function updateTransactionHistory(email, sort = false) {
@@ -67,8 +67,8 @@ if (email) {
   }
 
   async function updateUi(email) {
-    showLoader();
-    // document.querySelector('.loader').classList.remove('hidden');
+    // showLoader();
+    document.querySelector('.loader').classList.remove('hidden');
     // document.querySelector('.overlay').classList.remove('hidden');
     try {
       // Fetch the user based on the provided email
@@ -78,8 +78,8 @@ if (email) {
         .eq('email', email)
         .single();
 
-      hideLoader();
-      // document.querySelector('.loader').classList.add('hidden');
+      // hideLoader();
+      document.querySelector('.loader').classList.add('hidden');
       // document.querySelector('.overlay').classList.add('hidden');
       console.log(data);
       if (error) {
