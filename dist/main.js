@@ -67,7 +67,7 @@ if (email) {
   }
 
   async function updateUi(email) {
-    // showLoader();
+    showLoader();
     try {
       // Fetch the user based on the provided email
       const { data, error } = await db
@@ -76,7 +76,7 @@ if (email) {
         .eq('email', email)
         .single();
 
-      // hideLoader();
+      hideLoader();
       console.log(data);
       if (error) {
         console.error('Error fetching data:', error.message);
