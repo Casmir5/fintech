@@ -40,7 +40,7 @@ async function fetchAllUsers() {
 
   try {
     // HideLoader
-    document.querySelector('.loader').classList.remove('hidden');
+    document.querySelector('.loader').classList.add('hidden');
 
     // Fetch the user
     const { data, error } = await db.from('users').select();
@@ -176,7 +176,7 @@ async function pushValueToTransactionsRow(email, newValue) {
       .eq('email', email)
       .single();
 
-    // ShowLoader
+    // HideLoader
     document.querySelector('.loader').classList.add('hidden');
     if (error) {
       console.error('Error updating data:', error.message);
