@@ -67,7 +67,7 @@ if (email) {
   }
 
   async function updateUi(email) {
-    // showLoader();
+    // ShowLoader
     document.querySelector('.loader').classList.remove('hidden');
     // document.querySelector('.overlay').classList.remove('hidden');
     try {
@@ -78,7 +78,7 @@ if (email) {
         .eq('email', email)
         .single();
 
-      // hideLoader();
+      // HideLoader;
       document.querySelector('.loader').classList.add('hidden');
       // document.querySelector('.overlay').classList.add('hidden');
       console.log(data);

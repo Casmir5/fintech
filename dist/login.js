@@ -11,12 +11,16 @@ emailFilled = pwordFilled = false;
 
 async function checkCredentials(email, password) {
   try {
+    document.querySelector('.loader').classList.remove('hidden');
     // Fetch the user based on the provided email
+
     const { data, error } = await db
       .from('users')
       .select()
       .eq('email', email)
       .single();
+
+    document.querySelector('.loader').classList.add('hidden');
 
     if (error) {
       console.error('Error fetching data:', error.message);

@@ -100,6 +100,9 @@ form.addEventListener('submit', function (e) {
     //   },
     // });
 
+    // ShowLoader
+    document.querySelector('.loader').classList.remove('hidden');
+
     const { error } = await db.from('users').insert({
       email: userEmail.join(''),
       password: password.value,
@@ -108,6 +111,9 @@ form.addEventListener('submit', function (e) {
       transactions: ['0'],
     });
     // .select();
+
+    // HideLoader
+    document.querySelector('.loader').classList.add('hidden');
 
     if (error) {
       console.log('Error inserting user:', error.message);

@@ -15,6 +15,8 @@ console.log(submitBtn, amountContainer);
 const useremail = sessionStorage.getItem('email');
 const amountArr = [];
 async function fetchTransactions(email) {
+  // ShowLoader
+  document.querySelector('.loader').classList.remove('hidden');
   try {
     // Fetch the user based on the provided email
     const { data, error } = await db
@@ -23,6 +25,8 @@ async function fetchTransactions(email) {
       .eq('email', email)
       .single();
 
+    // HideLoader
+    document.querySelector('.loader').classList.add('hidden');
     if (error) {
       console.error('Error fetching data:', error.message);
       return false;

@@ -35,7 +35,13 @@ const RandomProfileColor = function (colors) {
 
 console.log(RandomProfileColor(profileColors));
 async function fetchAllUsers() {
+  // ShowLoader
+  document.querySelector('.loader').classList.remove('hidden');
+
   try {
+    // HideLoader
+    document.querySelector('.loader').classList.remove('hidden');
+
     // Fetch the user
     const { data, error } = await db.from('users').select();
 
@@ -122,8 +128,14 @@ fetchTransactions(useremail);
 
 // Transfer Credentials check
 async function checkTransferCredentials(email, amount) {
+  // ShowLoader
+  document.querySelector('.loader').classList.remove('hidden');
   try {
+    // HideLoader
+    document.querySelector('.loader').classList.add('hidden');
+
     // Fetch the user based on the provided email
+
     const { data, error } = await db
       .from('users')
       .select()
@@ -149,6 +161,8 @@ async function checkTransferCredentials(email, amount) {
 }
 
 async function pushValueToTransactionsRow(email, newValue) {
+  // ShowLoader
+  document.querySelector('.loader').classList.remove('hidden');
   try {
     const oldTransactions = await fetchTransactions(email);
     if (oldTransactions === null) {
@@ -162,6 +176,8 @@ async function pushValueToTransactionsRow(email, newValue) {
       .eq('email', email)
       .single();
 
+    // ShowLoader
+    document.querySelector('.loader').classList.add('hidden');
     if (error) {
       console.error('Error updating data:', error.message);
       return false;
