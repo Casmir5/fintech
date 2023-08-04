@@ -46,7 +46,7 @@ input:focus {
 /*  */
 
 .transaction__row {
-  @apply w-full border-b-2 border-slate-400  mb-10 px-2;
+  @apply w-full border-b-2 border-slate-400 border-opacity-40 mb-10 px-2;
   /* height: 2px; */
 }
 .transaction__type {
@@ -63,7 +63,9 @@ input:focus {
 .number {
   @apply text-white py-2 text-2xl font-bold bg-transparent flex-grow;
 }
-
+#delete {
+  @apply text-purple-700;
+}
 .amount-error {
   @apply bg-red-700 bg-opacity-30 p-2 border-b-red-600 border-b-2;
 }
