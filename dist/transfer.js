@@ -206,6 +206,8 @@ transferBtn.addEventListener('click', function (e) {
         errorMsg.textContent = 'insufficient balance';
         console.log('insufficient balance');
       } else {
+        transferAmount.classList.remove('error');
+        errorMsg.textContent = 'insufficient balance';
         // Add transfered amount to recipient balance
         pushValueToTransactionsRow(recipientEmailValue, transferAmountValue)
           .then(result => {
