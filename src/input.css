@@ -8,6 +8,7 @@
 body {
   font-family: 'Clash Grotesk', sans-serif;
   @apply bg-slate-900;
+  @apply xl:w-96 m-auto;
   /* background-color: #1d283a; */
 }
 .custom-loader {
