@@ -8,6 +8,12 @@ const pword = document.querySelector('#login-Pword');
 const loginForm = document.querySelector('form');
 let emailFilled, pwordFilled;
 emailFilled = pwordFilled = false;
+const splashScreen = document.querySelector('.splash-screen');
+
+// Hide splash screen
+setTimeout(() => {
+  splashScreen.classList.add('hidden');
+}, 2000);
 
 async function checkCredentials(email, password) {
   try {

@@ -34,6 +34,7 @@ const RandomProfileColor = function (colors) {
 };
 
 console.log(RandomProfileColor(profileColors));
+
 async function fetchAllUsers() {
   try {
     // Fetch the user

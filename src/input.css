@@ -52,7 +52,9 @@ input:focus {
   border-bottom-width: 3px;
 }
 .balance,
-.btn {
+.btn,
+.profile-abbr,
+.splash-screen {
   /* background-image: linear-gradient(
     to bottom right,
     #7832e2,

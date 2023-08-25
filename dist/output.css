@@ -554,12 +554,21 @@ video {
   top: 50%;
 }
 
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .-mt-3 {
   margin-top: -0.75rem;
 }
 
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+
+.mb-14 {
+  margin-bottom: 3.5rem;
 }
 
 .mb-5 {
@@ -640,6 +649,10 @@ video {
 
 .w-28 {
   width: 7rem;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .w-7 {
@@ -779,11 +792,6 @@ video {
   padding-right: 0.75rem;
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
 .px-7 {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
@@ -852,6 +860,11 @@ video {
   line-height: 2rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -878,6 +891,10 @@ video {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 .text-purple-600 {
@@ -1020,7 +1037,9 @@ input:focus {
 }
 
 .balance,
-.btn {
+.btn,
+.profile-abbr,
+.splash-screen {
   /* background-image: linear-gradient(
     to bottom right,
     #7832e2,
