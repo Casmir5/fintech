@@ -89,7 +89,7 @@ if (email) {
       const name = data.name;
       usernameEL.textContent = `${name} 👋`;
 
-      const profileHtml = `<a href="profile.html" class=' bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center'>
+      const profileHtml = `<a href="/profile.html" class=' bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center'>
       <p class="text-white text-xl uppercase">
         ${name[0].toUpperCase()}
         </p>
